@@ -9,6 +9,8 @@ import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
 import com.speak.portal.content.setup.upgrade.v0_0_1.CreateAdminUserUpgradeProcess;
 import com.speak.portal.content.setup.upgrade.v0_0_2.CreateSiteGroupUpgradeProcess;
 import com.speak.portal.content.setup.upgrade.v0_0_2.SetVirtualHostUpgradeProcess;
+import com.speak.portal.content.setup.upgrade.v0_0_3.AddLayoutsUpgradeProcess;
+import com.speak.portal.content.setup.upgrade.v0_0_3.SetLayoutsViewPermissionsUpgradeProcess;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -52,6 +54,8 @@ public class ContentSetupUpgradeStepRegistrator implements UpgradeStepRegistrato
 		registry.register("0.0.0", "0.0.1", new DummyUpgradeProcess());
 		registry.register("0.0.1", "0.0.2", new CreateAdminUserUpgradeProcess());
 		registry.register("0.0.2", "0.0.3", new CreateSiteGroupUpgradeProcess(), new SetVirtualHostUpgradeProcess());
+		registry.register("0.0.3", "0.0.4", new AddLayoutsUpgradeProcess());
+		registry.register("0.0.4", "0.0.5", new SetLayoutsViewPermissionsUpgradeProcess());
 	}
 
 	/**
