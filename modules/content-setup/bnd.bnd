@@ -1,0 +1,4 @@
+Bundle-Name: Speak Portal Content Setup
+Bundle-SymbolicName: com.speak.portal.content.setup
+Bundle-Version: 1.0.0
+Export-Package: com.speak.portal.content.setup

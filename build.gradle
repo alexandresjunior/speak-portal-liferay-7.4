@@ -1,1 +1,31 @@
-// Check GETTING_STARTED.markdown for information regarding usage.
+buildscript {
+    dependencies {
+        classpath group: "com.liferay", name: "com.liferay.gradle.plugins.source.formatter", version: "2.3.413"
+    }
+
+    repositories {
+        maven {
+            url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+        }
+    }
+}
+
+apply plugin: "com.liferay.source.formatter"
+
+distBundle {
+    exclude "test-functional*.jar"
+}
+
+configure(subprojects.findAll { !it.subprojects }) {
+    if (project.path.startsWith(":modules:")) {
+        afterEvaluate { project ->
+            checkSourceFormatting {
+                maxLineLength = 120
+            }
+
+            formatSource {
+                maxLineLength = 120
+            }
+        }
+    }
+}
